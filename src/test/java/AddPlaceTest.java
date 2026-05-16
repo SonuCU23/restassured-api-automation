@@ -51,7 +51,6 @@ public class AddPlaceTest {
 
 
         // Get Place API Assert to assert the new update place
-
         String getResponse =  given()
                                     .log().all()
                                     .queryParam("key","qaclick123")
@@ -64,6 +63,7 @@ public class AddPlaceTest {
                                     .body("address", equalTo("70 winter walk, USA"))
                                     .extract().response().asString();
 
+        
         // Using TestNG Assertion to assert Update Place
         JsonPath getJson = new JsonPath(getResponse);
         String actualPlace = getJson.getString("address");
